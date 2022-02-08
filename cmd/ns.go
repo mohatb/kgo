@@ -1,5 +1,5 @@
 /*
-Copyright © 2022 NAME HERE <EMAIL ADDRESS>
+Copyright © 2022 Mohammed Abu-Taleb - mohatb@gmail.com
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -25,13 +25,8 @@ import (
 // nsCmd represents the ns command
 var nsCmd = &cobra.Command{
 	Use:   "ns",
-	Short: "switch between contexts (clusters) on kubectl faster.",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "switch between Kubernetes namespaces (and configure them for kubectl) easily",
+	Long:  `The script is not tied to kgo, it works by calling https://github.com/ahmetb/kubectx (Special thanks to the creators).`,
 	Run: func(cmd *cobra.Command, args []string) {
 		kubens()
 	},
@@ -40,15 +35,6 @@ to quickly create a Cobra application.`,
 func init() {
 	rootCmd.AddCommand(nsCmd)
 
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// nsCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// nsCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
 func kubens() {
