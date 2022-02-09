@@ -48,10 +48,10 @@ Usage
 --------------
 For this tool to work, you should have a valid kubeconfig file located on /home/<user>/.kube/config.
 Interactive:
-./kubego
+kgo
 Non-Interactive:
-./kubego [nodeName]
-Note: Kubego does not require kubectl to be installed.`
+kgo [nodeName]
+Note: kgo does not require kubectl to be installed.`
 
 // shellCmd represents the shell command
 var shellCmd = &cobra.Command{
