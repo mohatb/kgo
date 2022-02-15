@@ -16,6 +16,7 @@ limitations under the License.
 package cmd
 
 import (
+	_ "embed"
 	"os"
 	"os/exec"
 
