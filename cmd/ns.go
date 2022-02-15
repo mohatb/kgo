@@ -16,11 +16,15 @@ limitations under the License.
 package cmd
 
 import (
+	_ "embed"
 	"os"
 	"os/exec"
 
 	"github.com/spf13/cobra"
 )
+
+//go:embed "scripts/kubens.sh"
+var kns string
 
 // nsCmd represents the ns command
 var nsCmd = &cobra.Command{
@@ -39,7 +43,7 @@ func init() {
 
 func kubens() {
 
-	cmd := exec.Command("bash", "-c", "scripts/kubens")
+	cmd := exec.Command("bash", "-c", kns)
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr

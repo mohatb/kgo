@@ -22,6 +22,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
+//go:embed "scripts/kubectx.sh"
+var kctx string
+
 // ctxCmd represents the ctx command
 var ctxCmd = &cobra.Command{
 	Use:   "ctx",
@@ -41,7 +44,7 @@ func init() {
 
 func kubectx() {
 
-	cmd := exec.Command("bash", "-c", "scripts/kubectx")
+	cmd := exec.Command("bash", "-c", kctx)
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr

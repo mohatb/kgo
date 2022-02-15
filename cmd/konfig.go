@@ -22,6 +22,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
+//go:embed "scripts/kconfig.sh"
+var kconfig string
+
 // konfigCmd represents the konfig command
 var konfigCmd = &cobra.Command{
 	Use:   "konfig",
@@ -43,7 +46,7 @@ func init() {
 
 func konfig() {
 
-	cmd := exec.Command("bash", "-c", "scripts/konfig")
+	cmd := exec.Command("bash", "-c", kconfig)
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
